@@ -4,7 +4,11 @@
   "description": "[![Build Status](https://travis-ci.com/khuynh92/13-object-relational-mapping.svg?branch=master)](https://travis-ci.com/khuynh92/14-relationship-modeling)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage --verbose",
+    "test-watch": "jest --watchAll --coverage --verbose",
+    "lint": "eslint **/*.js",
+    "start": "node index.js",
+    "watch": "nodemon index.js"
   },
   "repository": {
     "type": "git",
