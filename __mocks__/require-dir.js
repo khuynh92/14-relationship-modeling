@@ -1,7 +1,7 @@
 'use strict';
 
-import pizza from '../src/models/pizza.js';
-import dinner from '../src/models/dinner.js';
+import Pizza from '../src/models/pizza.js';
+import Meal from '../src/models/meal.js';
 
 export default (dir) => {
   const notMongo = {
@@ -18,7 +18,7 @@ export default (dir) => {
   if (typeof dir !== 'string') {return {};}
   return {
     'foo': {default: notMongo},
-    'pizza': {default: pizza},
-    'dinner': {default: dinner},
+    'pizza': {default: Pizza},
+    'meal': {default: Meal},
   };
 };
