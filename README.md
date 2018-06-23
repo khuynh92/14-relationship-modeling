@@ -4,7 +4,7 @@
 ## 14-relationship-modeling
 
   Travis: https://travis-ci.com/khuynh92/14-relationship-modeling  
-  Heroku: https://khoa-14-obj-relationship-modeling.herokuapp.com  
+  Heroku: https://khoa-14-relationship-modeling.herokuapp.com  
   PR: https://github.com/khuynh92/14-relationship-modeling/pull/1  
 
   
