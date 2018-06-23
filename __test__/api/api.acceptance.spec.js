@@ -18,16 +18,21 @@ const supertest = superr(server);
 jest.setTimeout(60000);
 
 
-afterAll(() => {
-  mongoose.connection.close();
+afterAll((done) => {
+  mongoose.disconnect().then(() => {
+    console.log('disconnected');
+    done();
+  }).catch((err) => {
+    console.error(err);
+    done();
+  });
 });
 
 describe('api module', () => {
 
   beforeAll((done) => {
     mockgoose.prepareStorage().then(function () {
-      mongoose.connect('mongodb://localhost/lab_13');
-      done();
+      mongoose.connect('mongodb://localhost/lab_13').then(() => done());
     });
   });
 
