@@ -31,7 +31,7 @@ router.get('/api/v1/:model/:id', (req, res, next) => {
     .populate('dish')
     .then(data => {
       if (data === null) {
-        next('404');
+        next();
       } else {
         sendJSON(res, data);
       }
@@ -56,7 +56,7 @@ router.delete('/api/v1/:model/:id', (req, res, next) => {
   req.model.findById(req.params.id)
     .then(data => {
       if (data === null) {
-        next('404');
+        next();
       } else {
         req.model.findByIdAndDelete(req.params.id)
           .then(() => {
@@ -73,9 +73,17 @@ router.put('/api/v1/:model/:id', (req, res, next) => {
   if (Object.keys(req.body).length === 0) {
     next('400');
   } else {
-    req.model.findByIdAndUpdate(req.params.id, req.body, {new: true})
-      .then((data) => {
-        sendJSON(res, data);
+    req.model.findById(req.params.id)
+      .then(data => {
+        if (data === null) {
+          next();
+        } else {
+          req.model.findByIdAndUpdate(req.params.id, req.body, { new: true })
+            .then((data) => {
+              sendJSON(res, data);
+            })
+            .catch(next);
+        }
       })
       .catch(next);
 

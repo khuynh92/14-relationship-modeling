@@ -4,7 +4,7 @@
   "description": "[![Build Status](https://travis-ci.com/khuynh92/13-object-relational-mapping.svg?branch=master)](https://travis-ci.com/khuynh92/14-relationship-modeling)",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage --verbose",
+    "test": "jest --coverage --verbose --forceExit",
     "test-watch": "jest --watchAll --coverage --verbose",
     "lint": "eslint **/*.js",
     "start": "node index.js",
@@ -28,7 +28,7 @@
     "bcrypt": "^2.0.1",
     "cors": "^2.8.4",
     "dotenv": "^6.0.0",
-    "eslint": "^5.0.1",
+    "eslint": "^4.19.1",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.3.0",
     "mockgoose": "^7.3.5",

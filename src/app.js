@@ -17,9 +17,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.use(router);
-
-app.use(noBody);
 app.use(notFound);
+app.use(noBody);
 app.use(errorHandler);
 
 let server;

@@ -55,8 +55,9 @@ describe('api module', () => {
 
   it('get should return a 404 for valid requests when id is not found', () => {
 
-    return supertest.get(PIZZA_URL + '/fakepath')
+    return supertest.get(PIZZA_URL + '/5b7d1fb4d4a2990014e6dd8b')
       .then(response => {
+        console.log(response.text);
         expect(response.text).toBe('{"error":"Resource Not Found"}');
         expect(response.statusCode).toBe(404);
       });
@@ -139,7 +140,7 @@ describe('api module', () => {
 
   it('put should return 404, not found when an id is not found', () => {
     let obj = {this: 'is an object'};
-    return supertest.put(PIZZA_URL + '/ThisIsntThePathYoureLookingFor')
+    return supertest.put(PIZZA_URL + '/5b7d1fb4d4a2990014e6dd8c')
       .send(obj)
       .then(response => {
         expect(response.statusCode).toBe(404);
@@ -209,7 +210,7 @@ describe('api module', () => {
 
   it('delete should return a 404 for valid requests when id is not found', () => {
 
-    return supertest.delete(PIZZA_URL + '/fakepath')
+    return supertest.delete(PIZZA_URL + '/5b7d1fb4d4a2990014e6dd8b')
       .then(response => {
         expect(response.text).toBe('{"error":"Resource Not Found"}');
         expect(response.statusCode).toBe(404);

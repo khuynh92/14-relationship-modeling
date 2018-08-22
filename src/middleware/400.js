@@ -7,6 +7,6 @@ export default (err, req, res, next) => {
     res.write('Bad Request, body is needed');
     res.end();
   } else {
-    next();
+    next(err);
   }
 };
